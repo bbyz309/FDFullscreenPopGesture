@@ -60,3 +60,7 @@
 @property (nonatomic, assign) CGFloat fd_interactivePopMaxAllowedInitialDistanceToLeftEdge;
 
 @end
+
+@interface UIScrollView (FDFullscreenPopGesture)
+
+@end

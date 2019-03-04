@@ -286,3 +286,16 @@ typedef void (^_FDViewControllerWillAppearInjectBlock)(UIViewController *viewCon
 }
 
 @end
+
+@implementation UIScrollView (FDFullscreenPopGesture)
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    if ([otherGestureRecognizer.view isKindOfClass:NSClassFromString(@"UILayoutContainerView")]){
+        if (otherGestureRecognizer.state == UIGestureRecognizerStateBegan && self.contentOffset.x <= 0) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+@end
